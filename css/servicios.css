@@ -1,0 +1,157 @@
+/* Reset básico y tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar */
+header {
+    background-color: #1a1a2e;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    background-color: #16213e;
+    border-radius: 5px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.services-hero {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+ 
+}
+
+.services-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.services-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+/* Input Fields */
+.input-field {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .login-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .login-container p {
+        font-size: 0.9rem;
+    }
+
+    .input-field {
+        font-size: 0.9rem;
+    }
+
+    .login-btn {
+        font-size: 0.9rem;
+    }
+}
