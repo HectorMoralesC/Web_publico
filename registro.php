@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $insertResult = $collection->insertOne([
             'email' => $email,
             'password' => $hashedPassword,
+	    'role' => 'user',
             'created_at' => new MongoDB\BSON\UTCDateTime() // Fecha de creación
         ]);
 
