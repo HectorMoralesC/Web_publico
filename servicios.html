@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - VirtDesk</title>
+    <link rel="stylesheet" href="css/servicios.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">VirtDesk</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html" class="active">Servicios</a></li>
+                <li><a href="quiensomos.html">Quiénes Somos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero de Servicios -->
+        <section class="services-hero">
+            <h1>Nuestros Servicios</h1>
+            <p>En VirtDesk, ofrecemos soluciones innovadoras para la virtualización de escritorios, accesibles y de alto rendimiento, diseñadas para satisfacer tus necesidades.</p>
+        </section>
+
+
+<!-- Sección de Inicio de Sesión -->
+<section class="login-container">
+    <h1>Iniciar Sesión</h1>
+    <p>Accede a tu cuenta para disfrutar de nuestros servicios.</p>
+
+    <!-- Mensaje de error si existe -->
+    <?php if (isset($_GET['error'])): ?>
+        <div class="error-message">Correo electrónico o contraseña incorrectos.</div>
+    <?php endif; ?>
+    
+    <!-- Formulario de inicio de sesión -->
+    <form action="login.php" method="post">
+        <div class="login-box">
+            <input type="email" class="input-field" name="email" placeholder="Correo electrónico" required>
+            <input type="password" class="input-field" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="login-btn">Iniciar Sesión</button>
+        </div>
+    </form>
+
+    <!-- Sección de registro -->
+    <div class="register-prompt">
+        <p>¿No tienes cuenta?</p>
+        <a href="registro.html">
+            <button class="register-btn">Regístrate</button>
+        </a>
+    </div>
+</section>
+    </main>
+</body>
+</html>

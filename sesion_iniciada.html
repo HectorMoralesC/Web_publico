@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión Iniciada - VirtDesk</title>
+    <link rel="stylesheet" href="css/servicios.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">VirtDesk</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="quiensomos.html">Quiénes Somos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="session-initiated">
+            <h1>¡Bienvenido a tu cuenta, <?php echo htmlspecialchars($_POST['email']); ?>!</h1>
+            <p>Has iniciado sesión correctamente.</p>
+            <!-- Puedes agregar más contenido aquí -->
+        </section>
+    </main>
+</body>
+</html>
