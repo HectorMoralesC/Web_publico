@@ -1,0 +1,131 @@
+/* Reset básico y tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #ffffff; /* Fondo blanco para el encabezado */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+header h1 {
+    color: #007bff; /* Color azul */
+    margin-bottom: 10px;
+}
+
+/* Navbar */
+nav {
+    margin-top: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #007bff; /* Color azul para enlaces */
+    padding: 10px 15px;
+    border: 2px solid transparent; /* Borde para transición */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #e0e7ff; /* Fondo claro al pasar el mouse */
+    border-color: #007bff; /* Borde azul al pasar el mouse */
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centramos el contenido */
+}
+
+section {
+    background-color: #ffffff; /* Fondo blanco */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+section h2 {
+    color: #007bff; /* Color azul para títulos */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff; /* Línea inferior para títulos */
+    padding-bottom: 5px;
+}
+
+section p, 
+section ul {
+    color: #555; /* Color gris para texto */
+    font-size: 1rem;
+}
+
+/* Estilo de la lista */
+section ul {
+    padding-left: 20px; /* Espaciado para la lista */
+}
+
+section ul li {
+    margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+    position: relative; /* Posición relativa para el marcador */
+}
+
+section ul li::before {
+    content: '✔️'; /* Marcador de verificación */
+    position: absolute;
+    left: -20px; /* Desplazamiento a la izquierda */
+    color: #007bff; /* Color azul para el marcador */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333;
+    border-top: 2px solid #007bff; /* Línea superior azul */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 5px 0; /* Espaciado vertical */
+    }
+
+    section {
+        padding: 15px; /* Reducción de padding en secciones */
+    }
+
+    section h2 {
+        font-size: 1.5rem; /* Tamaño de fuente ajustado para títulos */
+    }
+}
