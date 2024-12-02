@@ -1,38 +1,44 @@
 <?php
-require 'vendor/autoload.php'; // Asegúrate de tener el paquete MongoDB instalado
+require 'vendor/autoload.php'; // Carga el cliente de MongoDB
 
 use MongoDB\Client;
 
+session_start(); // Iniciar sesión
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener datos del formulario
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Conectar a MongoDB
+    // Conexión a MongoDB
     $client = new Client("mongodb://127.0.0.1:27017");
-    $collection = $client->virtdesk_db->usuarios;
+    $usuariosCollection = $client->virtdesk_db->usuarios;
+    $sesionesCollection = $client->virtdesk_db->sesiones_activas;
 
-    // Buscar el usuario por correo electrónico
-    $user = $collection->findOne(['email' => $email]);
+    // Buscar el usuario por correo
+    $user = $usuariosCollection->findOne(['email' => $email]);
 
-    if ($user) {
-        // Verificar la contraseña
-        if (password_verify($password, $user['password'])) {
-            // Inicio de sesión exitoso
-            // Verificar el rol del usuario
-            if ($user['role'] === 'admin') {
-                header('Location: panel_admin.html'); // Redirigir al panel de administración
-            } else {
-                header('Location: sesion_iniciada.html'); // Redirigir a la página normal
-            }
-            exit();
+    if ($user && password_verify($password, $user['password'])) {
+        // Guardar los datos en la sesión
+        $_SESSION['user_id'] = (string)$user['_id']; // Convertir ObjectId a string
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['role'] = $user['role'];
+
+        // Registrar la sesión activa en MongoDB
+        $sesionesCollection->insertOne([
+            'usuario' => $user['email'],
+            'ip_address' => $_SERVER['REMOTE_ADDR'], // Dirección IP del cliente
+            'fecha_inicio' => new MongoDB\BSON\UTCDateTime(), // Fecha de inicio en UTC
+        ]);
+
+        // Redirigir según el rol
+        if ($user['role'] === 'admin') {
+            header('Location: panel_admin.php');
         } else {
-            // Contraseña incorrecta
-            header('Location: servicios.html?error=1');
-            exit();
+            header('Location: user_dashboard.php');
         }
+        exit();
     } else {
-        // Usuario no encontrado
+        // Usuario o contraseña incorrectos
         header('Location: servicios.html?error=1');
         exit();
     }

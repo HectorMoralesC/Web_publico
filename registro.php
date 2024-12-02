@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'vendor/autoload.php'; // Cargar Composer autoload para usar la librería de MongoDB
 
 // Conectar a la base de datos MongoDB
@@ -50,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar si la inserción fue exitosa
         if ($insertResult->getInsertedCount() == 1) {
             // Redirigir a la página de sesión iniciada
-            header("Location: sesion_iniciada.html");
+            header("Location: user_dashboard.php");
             exit(); // Asegurarse de que no se ejecute más código después de la redirección
         } else {
             echo "<p style='color: red;'>Error al registrar el usuario. Inténtalo de nuevo más tarde.</p>";
